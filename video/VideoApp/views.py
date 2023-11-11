@@ -9,7 +9,10 @@ def index(request):
             max = handle_uploaded_file(request.FILES.get("f"))
             return HttpResponseRedirect("/success")
 
-    return render(request, "VideoApp/index.html")
+    return render(request, "VideoApp/index.html", {'title': 'Загрузка видео'})
 
 def success(request):
-    return render(request, "VideoApp/success.html",context={"result":max})
+    return render(request, "VideoApp/success.html",context={"result":max, 'title': 'Итог работы'})
+
+def list(request):
+    return render(request, "VideoApp/list.html")

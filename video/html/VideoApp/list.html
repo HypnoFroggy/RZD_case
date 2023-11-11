@@ -1,0 +1,10 @@
+{% extends 'VideoApp/base.html' %}
+
+
+{% block content %}
+    <button type="button" class="btn btn-primary">Primary</button>
+    <form enctype="multipart/form-data" method="post">{% csrf_token %}
+    <p><input type="file" name="f">
+    <input class="" type="submit" value="Отправить"></p>
+    </form>
+{% endblock %}
