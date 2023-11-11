@@ -13,7 +13,7 @@ def index(request):
             return HttpResponseRedirect("/success")
     #else:
         #form = UploadFileForm()
-    return render(request, "index.html")
+    return render(request, "VideoApp/index.html")
 
 def success(request):
-    return render(request, "success.html")
+    return render(request, "VideoApp/success.html")

@@ -7,7 +7,6 @@
 # ]
 
 from django.urls import path, include
-from VideoApp.views import *
 
 urlpatterns = [
     # path('', index),
