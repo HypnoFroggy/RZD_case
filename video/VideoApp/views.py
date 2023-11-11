@@ -4,13 +4,14 @@ from .filehandle import handle_uploaded_file
 from django.http import HttpResponseRedirect
 def index(request):
     if request.method == "POST":
-        form = UploadFileForm(request.POST, request.FILES)
-        print(type(request.FILES))
+        #form = UploadFileForm(request.POST, request.FILES)
+        #print(type(request.FILES))
         if request.FILES:
-            handle_uploaded_file(request.FILES.get("file"))
+            print(type(request.FILES.get("f")))
+            handle_uploaded_file(request.FILES.get("f"))
             return HttpResponseRedirect("/success")
-    else:
-        form = UploadFileForm()
+    #else:
+        #form = UploadFileForm()
     return render(request, "index.html")
 
 def success(request):
