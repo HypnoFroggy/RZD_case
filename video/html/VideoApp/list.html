@@ -2,9 +2,39 @@
 
 
 {% block content %}
-    <button type="button" class="btn btn-primary">Primary</button>
-    <form enctype="multipart/form-data" method="post">{% csrf_token %}
-    <p><input type="file" name="f">
-    <input class="" type="submit" value="Отправить"></p>
-    </form>
+
+    </br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Name</th>
+                <th scope="col">Load date</th>
+                <th scope="col">Render date</th>
+                <th scope="col">Author</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in render_videos %}
+            <tr>
+                <th scope="row">
+                    {% if v.status == 1 %}
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #198754; display: inline-block;"></div>
+                    {% elif v.status == 0 %}
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #dc3545; display: inline-block;"></div>
+                    {% else %}
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #ffc107; display: inline-block; color: white;">{{ v.status }}</div>
+                    {% endif %}
+                </th>
+                <td>{{ v.name }}</td>
+                <td>{{ v.loadDate }}</td>
+                <td>{{ v.renderDate }}</td>
+                <td>{{ v.video_author }}</td>
+                <td><input type="button" class="btn btn-primary" value="Info"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}
