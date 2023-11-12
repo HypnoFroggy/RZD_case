@@ -1,0 +1,16 @@
+{% extends 'VideoApp/base.html' %}
+
+
+{% block content %}
+    </br>
+    <div class="card">
+        <div class="card-footer">
+            <label for="formFile" class="form-label">Select the video file that needs to be processed.</label>
+            <form enctype="multipart/form-data" method="post">{% csrf_token %}
+            <p><input class="form-control" type="file" name="f">
+            </br>
+            <input class="btn btn-primary" type="submit" value="Отправить"></p>
+            </form>
+        </div>
+    </div>
+{% endblock %}
